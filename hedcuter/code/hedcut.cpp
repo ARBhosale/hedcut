@@ -132,7 +132,9 @@ void Hedcut::create_disks(cv::Mat & img, CVT & cvt)
 		disk.center.x = cell.site.y; //x = col
 		disk.center.y = cell.site.x; //y = row
 		disk.color = (black_disk) ? cv::Scalar::all(0) : cv::Scalar(r, g, b, 0.0);
-		disk.radius = (uniform_disk_size) ? disk_size : (100 * disk_size / (avg_v + 100));
+		// disk.radius = (uniform_disk_size) ? disk_size : (100 * disk_size / (avg_v + 100));
+		disk.radius = (uniform_disk_size) ? disk_size : cell.closestEdgeDistance;
+		// disk.radius = (uniform_disk_size) ? disk_size : cell.farthestEdgeDistance;
 
 		//remember
 		this->disks.push_back(disk);

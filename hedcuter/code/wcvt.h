@@ -49,6 +49,8 @@ struct VorCell
 
 	cv::Point site;
 	std::list<cv::Point> coverage;
+	float closestEdgeDistance = 0.0f;
+	float farthestEdgeDistance = 0.0f;
 };
 
 bool compareCell(const std::pair<float, cv::Point>& p1, const std::pair<float, cv::Point>& p2);

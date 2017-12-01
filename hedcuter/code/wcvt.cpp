@@ -99,6 +99,14 @@ void CVT::vor(cv::Mat &  img)
 		for (int y = 0; y < res.width; y++)
 		{
 			ushort rootid = root.at<ushort>(x, y);
+			int xDiff = this->cells[rootid].site.x - x;
+			int yDiff = this->cells[rootid].site.y - y;
+			float distanceBetweenSiteAndXY = std::sqrt(std::pow(xDiff, 2) + std::pow(yDiff, 2));
+			if (distanceBetweenSiteAndXY > this->cells[rootid].farthestEdgeDistance) {
+				this->cells[rootid].farthestEdgeDistance = distanceBetweenSiteAndXY;
+			} else {
+				this->cells[rootid].closestEdgeDistance = distanceBetweenSiteAndXY;
+			}
 			this->cells[rootid].coverage.push_back(cv::Point(x,y));
 		}//end y
 	}//end x

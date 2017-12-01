@@ -15,3 +15,6 @@ stippler/stippler.vcxproj.user
 voronoi/voronoi.vcxproj.filters
 voronoi/voronoi.vcxproj.user
 voronoi.v11.suo
+boost_1_65_1/*
+*.cpp.o
+../hedcuter/code/CMakeFiles/*
